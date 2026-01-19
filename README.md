@@ -44,3 +44,29 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Comandos github.
+## Cosas que hay que hacer:
+1. Siempre hay que crear una rama nueva  |  git checkout -b nombredelarama  |  Si solo se quiere crear se omite el -b
+
+2. En caso de que se quiera cambiar de rama | git branch -> para ver las ramas existentes
+
+## Paso a paso para hacer un PR.
+
+1. Cambiarse de rama - hacer la rama con el nombre del ticket
+
+2. Hacer commit -> esto se hace desde la interfaz gráfica, siempre se debe enviar todo
+
+3. Se hace el git push -> git push origin nombredelarama
+
+4. Luego de eso aparecerá la opción de hacer un PR -> hay que revisar que vaya de la rama develop a nombredelarama
+
+5. Ya en git poner a todas las personas para que revisen
+
+6. Enviarlo al grupo linkeandolo, hay que poner tanto el link del pr como el link del ticket.
+
+## División de las ramas: 
+
+1. La rama main será la que irá conectada al servidor, cuando los cambies se envíen a main, se verán reflados en el .com
+
+2. La rama develop es la que se utilizará para desarrollar, ahí iran todos los cambios, una vez testeados se podrán enviar al main 
