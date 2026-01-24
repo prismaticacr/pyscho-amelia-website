@@ -53,7 +53,6 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 3. En caso de que se quiera cambiar de rama | git branch -> para ver las ramas existentes
 
-
 ## Paso a paso para hacer un PR.
 
 1. Cambiarse de rama - hacer la rama con el nombre del ticket
