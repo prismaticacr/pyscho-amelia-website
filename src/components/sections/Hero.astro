@@ -24,8 +24,8 @@ import ameliaProfile from "@/assets/images/amelia-profile.jpeg";
   <!-- Content -->
   <div class="relative container mx-auto px-4 pt-24 pb-16">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Text Column -->
-      <div class="text-center lg:text-left">
+      <!-- Text Column (sin botones en mobile) -->
+      <div class="text-center lg:text-left order-1">
         <span
           class="inline-block mb-6 px-4 py-2 bg-[#f4d9d9]/50 text-gray-800 rounded-full text-sm font-medium animate-fade-in"
         >
@@ -49,8 +49,9 @@ import ameliaProfile from "@/assets/images/amelia-profile.jpeg";
           empatía y profesionalismo en cada etapa de tu proceso.
         </p>
 
+        <!-- Botones - Solo visible en desktop -->
         <div
-          class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-delay"
+          class="hidden lg:flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-delay"
         >
           <a
             href="#contacto"
@@ -68,7 +69,7 @@ import ameliaProfile from "@/assets/images/amelia-profile.jpeg";
       </div>
 
       <!-- Image Column -->
-      <div class="relative flex justify-center lg:justify-end">
+      <div class="relative flex justify-center lg:justify-end order-2">
         <div class="relative w-72 h-72 md:w-96 md:h-96">
           <!-- Decorative diamonds -->
           <div
@@ -102,6 +103,24 @@ import ameliaProfile from "@/assets/images/amelia-profile.jpeg";
           </div>
         </div>
       </div>
+
+      <!-- Botones - Solo visible en mobile, después de la imagen -->
+<div
+  class="flex lg:hidden flex-col items-center justify-center gap-4 animate-fade-in-delay order-3 w-full px-4"
+>
+  <a
+    href="#contacto"
+    class="bg-[#367588] text-white px-12 py-3 rounded-full text-lg font-semibold hover:bg-[#367588]/90 transition-all shadow-lg hover:shadow-xl w-full max-w-xs text-center"
+  >
+    Agenda tu cita
+  </a>
+  <a
+    href="#sobre-mi"
+    class="border-2 border-[#CC8989] text-[#CC8989] px-8 py-3 rounded-full text-base font-medium hover:bg-[#CC8989]/10 transition-all w-auto text-center"
+  >
+    Conóceme
+  </a>
+</div>
     </div>
   </div>
 
