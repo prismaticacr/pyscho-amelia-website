@@ -25,15 +25,9 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Luis y Carmen",
-    role: "Pareja casada 8 años",
-    content: "Nuestra comunicación había llegado a un punto crítico. Con la guía de Amelia aprendimos a escucharnos de verdad y resolver conflictos sin herir al otro.",
-    rating: 5,
-  },
-  {
-    name: "Patricia",
-    role: "Mamá en lactancia",
-    content: "La depresión postparto me estaba consumiendo. Amelia fue un salvavidas, me dio las herramientas para sanar y disfrutar de mi bebé sin tanto sufrimiento.",
+    name: "Laura",
+    role: "Paciente de terapia individual",
+    content: "Amelia es una psicóloga profundamente empática, cercana y humana. Su acompañamiento no se limita únicamente a las sesiones: también está presente entre sesiones cuando la necesito, lo cual ha marcado una enorme diferencia durante momentos especialmente complejos y difíciles de mi vida. Algo que valoro inmensamente es que, después de cada sesión, me envía un mensaje de 'resumen'. Estos mensajes son un regalo: me ayudan a ordenar mis ideas y mis sentimientos, resumen con claridad los puntos importantes que trabajamos e incluyen las tareas y acciones que vamos a tomar a partir de ahí. Recibirlos me hace sentir realmente escuchada, comprendida y acompañada incluso fuera del espacio terapéutico. Me he sentido siempre acogida sin juicio. Ella practica una escucha activa genuina, se comunica con sinceridad y mantiene una ética profesional impecable. Su capacidad para sostenerme con calidez, claridad y presencia la ha convertido en una aliada fundamental en mi proceso. Le debo muchísimo y sigo agradecida cada día por su guía y por el espacio seguro que ha creado para mi crecimiento personal. La recomiendo con total confianza. ♥️",
     rating: 5,
   },
 ];
@@ -65,7 +59,7 @@ const MAX_CHARS = 200;
           <div id="testimonials-track-mobile" class="flex transition-transform duration-500 ease-in-out">
             {testimonials.map((testimonial, idx) => (
               <div class="shrink-0 w-full px-2">
-                <div class="bg-white rounded-3xl p-8 shadow-lg relative">
+                <div class="testimonial-card bg-white rounded-3xl p-8 shadow-lg relative transition-all duration-300">
                   <!-- Quote Icon -->
                   <div class="absolute -top-4 left-8 w-10 h-10 bg-[#367588] rounded-full flex items-center justify-center shadow-lg z-10">
                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -269,6 +263,22 @@ const MAX_CHARS = 200;
   </div>
 </section>
 
+<style>
+  /* Altura fija para cards en mobile */
+  @media (max-width: 767px) {
+    .testimonial-card {
+      min-height: 420px;
+      height: 420px;
+    }
+    
+    /* Cuando se expande, permitir que crezca */
+    .testimonial-card.expanded {
+      height: auto;
+      min-height: 420px;
+    }
+  }
+</style>
+
 <script>
   // ===== READ MORE/LESS FUNCTIONALITY =====
   document.querySelectorAll('.read-more-btn').forEach(button => {
@@ -278,12 +288,17 @@ const MAX_CHARS = 200;
       const fullText = textElement.getAttribute('data-full') || '';
       const isExpanded = btn.textContent === 'Ver menos';
       
+      // Encontrar el card contenedor en mobile
+      const card = btn.closest('.testimonial-card');
+      
       if (isExpanded) {
         textElement.textContent = `"${fullText.substring(0, 200)}..."`;
         btn.textContent = 'Ver más';
+        if (card) card.classList.remove('expanded');
       } else {
         textElement.textContent = `"${fullText}"`;
         btn.textContent = 'Ver menos';
+        if (card) card.classList.add('expanded');
       }
     });
   });
@@ -294,7 +309,7 @@ const MAX_CHARS = 200;
   const nextBtnMobile = document.getElementById('next-mobile');
   const dots = document.querySelectorAll('.dot');
   let currentIndexMobile = 0;
-  const totalTestimonials = 6;
+  const totalTestimonials = 5;
 
   function updateCarouselMobile(index: number) {
     if (!trackMobile) return;
@@ -337,7 +352,7 @@ const MAX_CHARS = 200;
   // ===== DESKTOP CAROUSEL =====
   const trackDesktop = document.getElementById('testimonials-track-desktop');
   let currentIndexDesktop = 0;
-  const testimonialCount = 6;
+  const testimonialCount = 5;
   let autoScrollInterval: number;
 
   function moveCarouselDesktop() {
